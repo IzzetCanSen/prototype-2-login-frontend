@@ -8,5 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class GenericFormComponent {
   @Input() fields!: any[];
   @Input() title!: string;
+  @Input() extraInformation!: string;
   @Output() onSubmit = new EventEmitter<void>();
 }

@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GenericFormComponent } from './generic-form/generic-form.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
-  declarations: [AppComponent, GenericFormComponent, SignInComponent],
+  declarations: [AppComponent, GenericFormComponent, SignInComponent, SignUpComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

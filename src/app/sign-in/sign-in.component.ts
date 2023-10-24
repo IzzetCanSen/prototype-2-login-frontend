@@ -10,7 +10,8 @@ export class SignInComponent {
     { name: 'email', label: 'Email', type: 'email', value: '' },
     { name: 'password', label: 'Password', type: 'password', value: '' },
   ];
-
+  title = 'Sign In';
+  extraInformation = "Don't have an account yet? Sign In";
   signInSubmit() {
     console.log('submit button pressed');
   }
