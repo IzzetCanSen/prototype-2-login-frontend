@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit.emit()" novalidate>
+  <h1>{{ title }}</h1>
+  <div *ngFor="let field of fields">
+    <label for="{{ field.name }}">{{ field.label }}</label>
+    <input
+      type="{{ field.type }}"
+      id="{{ field.name }}"
+      name="{{ field.name }}"
+      [(ngModel)]="field.value"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>
