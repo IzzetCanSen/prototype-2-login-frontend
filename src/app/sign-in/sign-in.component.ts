@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,7 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  constructor(private auth: AuthService, private fb: FormBuilder) {}
+  constructor(
+    private auth: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
   signinForm!: FormGroup;
 
   ngOnInit(): void {
@@ -24,6 +29,7 @@ export class SignInComponent {
         next: (res) => {
           alert(res.message);
           this.signinForm.reset();
+          this.router.navigate(['dashboard']);
         },
         error: (err) => {
           alert(err?.error.message);
