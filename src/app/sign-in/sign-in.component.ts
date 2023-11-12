@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,13 +8,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  signInFields = [
-    { name: 'email', label: 'Email', type: 'email', value: '' },
-    { name: 'password', label: 'Password', type: 'password', value: '' },
-  ];
-  title = 'Sign In';
-  extraInformation = "Don't have an account yet? Sign In";
-  signInSubmit() {
-    console.log('submit button pressed');
+  constructor(private auth: AuthService, private fb: FormBuilder) {}
+  signinForm!: FormGroup;
+
+  ngOnInit(): void {
+    this.signinForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
+  onSubmit() {
+    if (this.signinForm.valid) {
+      this.auth.signIn(this.signinForm.value).subscribe({
+        next: (res) => {
+          alert(res.message);
+        },
+        error: (err) => {
+          alert(err?.error.message);
+        },
+      });
+    } else {
+      console.log('not valid');
+    }
   }
 }

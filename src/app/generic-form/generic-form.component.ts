@@ -9,5 +9,6 @@ export class GenericFormComponent {
   @Input() fields!: any[];
   @Input() title!: string;
   @Input() extraInformation!: string;
+  @Input() formGroupName!: string;
   @Output() onSubmit = new EventEmitter<void>();
 }

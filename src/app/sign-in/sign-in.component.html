@@ -1,6 +1,15 @@
-<app-generic-form
-  [fields]="signInFields"
-  [title]="title"
-  [extraInformation]="extraInformation"
-  (onSubmit)="signInSubmit()"
-></app-generic-form>
+<form [formGroup]="signinForm">
+  <h1>Sign In</h1>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" />
+  </div>
+  <button (click)="onSubmit()" type="submit">Sign In</button>
+  <div>
+    <p>Don't have an account yet? Sign In</p>
+  </div>
+</form>
