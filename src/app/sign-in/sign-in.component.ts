@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -23,6 +23,7 @@ export class SignInComponent {
       this.auth.signIn(this.signinForm.value).subscribe({
         next: (res) => {
           alert(res.message);
+          this.signinForm.reset();
         },
         error: (err) => {
           alert(err?.error.message);
