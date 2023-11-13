@@ -30,7 +30,11 @@ export class SignInComponent {
           alert(res.message);
           this.signinForm.reset();
           this.auth.storeToken(res.token);
-          this.router.navigate(['dashboard']);
+          if (this.auth.getRole() === 'User') {
+            this.router.navigate(['dashboard']);
+          } else {
+            this.router.navigate(['adminDashboard']);
+          }
         },
         error: (err) => {
           alert(err?.error.message);

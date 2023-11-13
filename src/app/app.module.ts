@@ -8,9 +8,16 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, SignUpComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    SignInComponent,
+    SignUpComponent,
+    DashboardComponent,
+    AdminDashboardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
