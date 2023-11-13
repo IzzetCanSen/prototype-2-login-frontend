@@ -1,15 +1,15 @@
 <form [formGroup]="signinForm">
   <h1>Sign In</h1>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" formControlName="email" />
+  <div id="inputsContainer">
+    <div class="inputContainer">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" />
+    </div>
+    <div class="inputContainer">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+    </div>
+    <button (click)="onSubmit()" type="submit">SIGN IN</button>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password" />
-  </div>
-  <button (click)="onSubmit()" type="submit">Sign In</button>
-  <div>
-    <p>Don't have an account yet? <a routerLink="/signup">Sign Up</a></p>
-  </div>
+  <p>Don't have an account yet? <a routerLink="/signup">Sign Up</a></p>
 </form>
